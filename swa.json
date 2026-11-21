@@ -19,7 +19,7 @@
         "repositoryUrl": "[parameters('repositoryUrl')]",
         "branch": "[parameters('branch')]",
         "repositoryToken": "[parameters('repositoryToken')]",
-        "buildProperties": { "appLocation": "/", "outputLocation": "" }
+        "buildProperties": { "appLocation": "/", "appArtifactLocation": "" }
       }
     }
   ]
