@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": { "type": "string" },
+    "location": { "type": "string", "defaultValue": "eastus2" },
+    "repositoryUrl": { "type": "string" },
+    "branch": { "type": "string", "defaultValue": "main" },
+    "repositoryToken": { "type": "securestring" }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/staticSites",
+      "apiVersion": "2022-03-01",
+      "name": "[parameters('name')]",
+      "location": "[parameters('location')]",
+      "sku": { "name": "Free", "tier": "Free" },
+      "properties": {
+        "repositoryUrl": "[parameters('repositoryUrl')]",
+        "branch": "[parameters('branch')]",
+        "repositoryToken": "[parameters('repositoryToken')]",
+        "buildProperties": { "appLocation": "/", "outputLocation": "" }
+      }
+    }
+  ]
+}
